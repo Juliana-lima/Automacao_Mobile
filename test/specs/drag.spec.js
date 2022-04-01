@@ -1,13 +1,17 @@
 describe('Tela Drag and Drop', () => {
-    it('Deve ser capaz de montar a figura', async ()  => {
+    it('Deve acessar a tela de Drag e Drop', async ()  => {
         const selector1 = 'new UiSelector().text("Drag").className("android.widget.TextView")'
         const dragButton = await $(`android=${selector1}`)
         await dragButton.click()
+    });
 
+    it('Primeiro movimento do jogo', async () => {
 
-        const elem1 = await $('~drag-c1')
-        const quadrante1 = 'new UiSelector().index(0).className("android.view.ViewGroup")'
-        const target1 = await $(`android=${quadrante1}`)
-        await elem1.dragAndDrop(target1)
+        const figura1 = 'new UiSelector().index(13).className("android.widget.ImageView")'
+        const elem1 = await $(`android=${figura1}`)
+        const local1 = 'new UiSelector().index(3).className("android.view.ViewGroup")'
+        const target1 = await $(`android=${local1}`)
+
+        await elem1.dragAndDrop(target1, 5000)
     });
 });
